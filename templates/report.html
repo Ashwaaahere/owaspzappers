@@ -1,0 +1,109 @@
+
+{% load bootstrap5 %}
+{% load bootstrap_icons %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sitezappers</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Preahvihear&family=Roboto+Condensed:wght@700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <style>
+        .gradient-text {
+            font-size: 36px; /* Adjust font size as needed */
+            font-family: 'Space Grotesk'; /* Specify your preferred font family */
+            background-image: linear-gradient(
+                45deg,
+                #FF3BFF 0%,
+                #ECBFBF 20%,
+                #FF6F6F 40%,
+                #5C24FF 60%,
+                #D94FD5 80%,
+                #FFFFFF 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .no-horizontal-scroll {
+            overflow-x: hidden;
+            wrap: break-word;
+            white-space: normal;
+            overflow-y: auto;
+        }
+        
+        .underline-hover-container a:hover {
+            text-decoration: underline;
+          }
+         
+    </style>
+</head>
+<body style="background-color: #000;" class=''>
+    <nav class="navbar navbar-expand-lg  mx-5 mt-4 fixed-top " style="background-color: #000;">
+        <a class="navbar-brand text-white " style='font-family: Preahvihear' href="#">owaspzappers</a>
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#my-navbar" aria-controls="my-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            {% bs_icon 'menu-up' %}
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="my-navbar">
+            <ul class="navbar-nav mx-auto underline-hover-container">
+                <li class="nav-item mx-3"><a class="nav-link text-white"style='font-family: Roboto Condensed' href="{% url 'index' %}">Home</a></li>
+                <li class="nav-item mx-3"><a class="nav-link text-white " style='font-family: Roboto Condensed' href="">About</a></li>
+                <li class="nav-item mx-3"><a class="nav-link text-white" style='font-family: Roboto Condensed' href="">Contact Us</a></li>
+            </ul>
+           
+        </div>
+        <div class="ms-auto d-none d-lg-flex align-items-center">
+            <button type="button" class="btn btn-outline-light">Visit Bytetopia</button>
+        </div>
+    </nav>
+    <div class="container-fluid my-5">
+        <div class="row justify-content-center align-items-center pt-5 ">
+            <div class="col-md-4 text-white">
+                <h1 class="gradient-text fs-1 text-center" >The place where Ideas meet Reality</h1>
+                <p class="text-center">
+                    Conduct a comprehensive validation process to gather detailed insights. Following the validation,
+                     you can proceed to download the PDF summarizing the results. This allows for a thorough examination of 
+                     the outcomes and facilitates convenient access to the detailed findings.
+                </p>
+                <p class="text-center">
+                    Bytetopia, a cutting-edge Software as a Service (SaaS) development company dedicated to 
+                    fostering innovation and transforming digital landscapes. At Bytetopia, we take pride in our 
+                    commitment to delivering bespoke SaaS solutions that empower businesses, streamline operations,
+                     and enhance overall efficiency.
+                </p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-outline-light btn-rounded mx-3" onclick="scrollToBottom()" data-mdb-ripple-init data-mdb-ripple-color="dark">
+                        Download PDF
+                    </button>
+                    <button type="button" class="btn btn-primary btn-rounded mx-3" data-mdb-ripple-init data-mdb-ripple-color="dark">
+                         Bytetopia
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-8 d-flex align-items-center justify-content-center vh-100">
+                <div class="card " style="height: 75vh; border: 20px solid transparent; border-radius: 20px; border-image: linear-gradient(45deg, #FF3BFF 0%, #ECBFBF 20%, #FF6F6F 40%, #5C24FF 60%, #D94FD5 80%, #FFFFFF 100%); border-image-slice: 1; ">
+                    <div class="card-header">
+                        Output
+                    </div>
+                    <div class="card-body" style="overflow-y: auto;">
+                        <blockquote class="blockquote mb-0">
+                            <p class="no-horizontal-scroll">
+                                <pre class="mx-auto">
+                                 {{text}}
+                                </pre>
+                            <p>
+                      </blockquote>
+                    </div>
+                    <footer class="blockquote-footer my-2">A product by <cite title="Source Title">Bytetopia</cite>
+                        <a href="#" class='btn btn-primary mx-5' id="download-pdf-button">Download Feedback Summary</a>
+                    </footer>
+                  </div>
+        </div>
+    </div>
+    
+</body>    
